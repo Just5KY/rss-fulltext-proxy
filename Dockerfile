@@ -1,4 +1,4 @@
-FROM node:10-alpine AS builder
+FROM node:alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN npm run build
 RUN rm -Rf node_modules/
 
 # Production
-FROM node:10-alpine
+FROM node:alpine
 
 COPY --from=builder /app/dist /app/dist
 WORKDIR /app
